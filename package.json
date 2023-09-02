@@ -1,0 +1,31 @@
+{
+  "name": "storefront-backend",
+  "version": "1.0.0",
+  "description": "udacity project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.ts",
+    "format": "prettier  --write",
+    "lint": "eslint --ext src/**/*",
+    "prettier": "prettier --config .prettierrc src/**/* --write",
+    "build": "npx tsc",
+    "jasmine": "jasmine",
+    "test": "npm run build && npm run jasmine"
+  },
+  "author": "ali alnujaidi",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.5.8",
+    "eslint": "^8.8.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "prettier": "^3.0.3"
+  }
+}
