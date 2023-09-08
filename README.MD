@@ -28,6 +28,7 @@ This application make use of the following libraries:
 
 ## Environment Variables
 - Create a .env file in the root of the project with the following variables:
+```
     #DATABASE CONFIGURATION
     POSTGRES_HOST= localhost
     POSTGRES_PORT= 5432
@@ -42,3 +43,4 @@ This application make use of the following libraries:
     #JSON WEB TOKEN CONFIGURATION
     JWT_SECRET= udacity
     JWT_EXPIRES_IN= '1d'
+```
