@@ -18,7 +18,6 @@ export const product_routes = (app: express.Application) => {
     '/products/create',
     requireAuth,
     async (req: Request, res: Response) => {
-      console.log(req.body.user_id);
       const productData: IProduct = req.body;
       const result = await product.createProduct(productData);
       res.json(result);

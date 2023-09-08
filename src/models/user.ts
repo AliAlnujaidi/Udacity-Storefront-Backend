@@ -39,8 +39,6 @@ export class User {
         userData.password + process.env.BYCRYPT_PASSWORD,
         parseInt(process.env.SALT_ROUNDS as string),
       );
-
-      console.log(userData)
       const conn = await db.connect();
       
       const sql =

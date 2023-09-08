@@ -11,7 +11,6 @@ export const user_routes = (app: express.Application) => {
 
   app.post('/users/login', async (req: Request, res: Response) => {
     const { email, password } = req.body;
-    console.log(email, password)
     const result = await user.login(email, password);
     res.json(result);
   });
