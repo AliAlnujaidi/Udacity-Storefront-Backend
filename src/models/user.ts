@@ -63,6 +63,7 @@ export class User {
 
   async login(email: string, password: string) {
     try {
+
       const conn = await db.connect();
       const sql = 'SELECT * FROM users WHERE email = $1';
       const result = await conn.query(sql, [email]);
@@ -82,7 +83,7 @@ export class User {
       }
       return 'invalid credentials';
     } catch (error) {
-      return new Error(`Could not authenticate user. Error: ${error}`);
+      return `Could not authenticate user. Error: ${error}`;
     }
   }
 

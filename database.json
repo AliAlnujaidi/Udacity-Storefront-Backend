@@ -2,14 +2,14 @@
   "dev": {
     "driver": "pg",
     "host": "127.0.0.1",
-    "database": "postgres",
+    "database": "storefrontdb",
     "user": "postgres",
     "password": "postgres"
   },
   "test": {
     "driver": "pg",
     "host": "127.0.0.1",
-    "database": "postgres_test",
+    "database": "storefrontdb_test",
     "user": "postgres",
     "password": "postgres"
   }
