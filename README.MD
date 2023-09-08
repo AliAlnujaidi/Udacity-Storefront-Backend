@@ -28,17 +28,18 @@ This application make use of the following libraries:
 
 ## Environment Variables
 - Create a .env file in the root of the project with the following variables:
-    #DATABASE CONFIGURATION
-    POSTGRES_HOST= localhost
-    POSTGRES_PORT= 5432
-    POSTGRES_DATABASE= storefrontdb
-    POSTGRES_USER= postgres
-    POSTGRES_PASSWORD= postgres
+```#DATABASE CONFIGURATION
+```POSTGRES_HOST= localhost
+```POSTGRES_PORT= 5432
+```POSTGRES_DATABASE= storefrontdb
+```POSTGRES_USER= postgres
+```POSTGRES_PASSWORD= postgres
 
-    #BYCRYPT CONFIGURATION
-    BYCRYPT_PASSWORD= udacity
-    SALT_ROUNDS= 10
+```#BYCRYPT CONFIGURATION
+```BYCRYPT_PASSWORD= udacity
+```SALT_ROUNDS= 10
 
-    #JSON WEB TOKEN CONFIGURATION
-    JWT_SECRET= udacity
-    JWT_EXPIRES_IN= '1d'
+```#JSON WEB TOKEN CONFIGURATION
+```JWT_SECRET= udacity
+```JWT_EXPIRES_IN= '1d'
+```
