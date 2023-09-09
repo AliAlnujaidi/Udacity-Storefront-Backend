@@ -5,12 +5,12 @@ export type IOrder = {
 };
 
 export class Order {
-  async createOrder(orderData: IOrder) {
+  async createOrder(user_id: number) {
     try {
       const conn = await db.connect();
       const sql =
         'INSERT INTO orders (user_id, status) VALUES($1, $2) RETURNING *';
-      const result = await conn.query(sql, [orderData.user_id, 'active']);
+      const result = await conn.query(sql, [user_id, 'active']);
       conn.release();
       return result.rows[0];
     } catch (error) {
@@ -22,7 +22,7 @@ export class Order {
     try {
       const conn = await db.connect();
       const sql =
-        "SELECT * FROM order_products left join products on order_products.product_id = products.id WHERE order_id = (SELECT id FROM orders WHERE user_id = $1 AND status = 'active')";
+        "SELECT * FROM orders WHERE user_id = $1 AND status = 'active'";
       const result = await conn.query(sql, [user_id]);
       conn.release();
       return result.rows;
