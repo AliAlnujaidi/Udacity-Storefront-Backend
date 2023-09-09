@@ -8,8 +8,6 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Get a list of products: '/products' [GET]
 - Get a specific product: '/products/:id' [GET] Request params: (id: user's id)
 - Create a new product '/products' [POST] Request body: {"name": "string", "price": integer, "token": "JWT token" }
-- [OPTIONAL] Top 5 most popular products 
-- [OPTIONAL] Products by category (args: product category)
 
 #### Users
 - Sign up a new user '/users/signup' [POST] Request body: {"firstName": "string", "lastName": "string", "email": "string", "password": "string" }
@@ -19,7 +17,6 @@ These are the notes from a meeting with the frontend developer that describe wha
 
 #### Orders
 - Get a current order for a user: '/orders/user/:token' [GET] Request params: (token: JWT token)
-- [OPTIONAL] Completed Orders by user (args: user id)[token required]
 
 ## Data Shapes
 #### Product
