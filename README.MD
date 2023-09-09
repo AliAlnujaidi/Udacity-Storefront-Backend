@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
+This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and follow the instructions below.
 
 ## Required Technologies
 This application make use of the following libraries:
@@ -13,7 +13,7 @@ This application make use of the following libraries:
 - jsonwebtoken from npm for working with JWTs
 - jasmine from npm for testing
 
-## Database setup
+## 1- Database setup
 - first Postgres should be installed and configured
 - set the postgres username and password both to be `postgres`
 - In psql shell Type ```CREATE DATABASE storefrontdb;``` and ```CREATE DATABASE storefrontdb_test``` to create databases for both dev and test
@@ -21,12 +21,7 @@ This application make use of the following libraries:
 ```db-migrate up``` to create the tables in the database
 ```db-migrate down``` to delete the tables in the database
 
-## Scripts
-- Run ```yarn install``` to install all dependencies
-- Run ```db-migrate up``` to create the tables in the database
-- Run ```yarn start``` to start the application
-
-## Environment Variables
+## 2- Environment Variables
 - Create a .env file in the root of the project with the following variables:
 ```env
 #DATABASE CONFIGURATION
@@ -45,4 +40,13 @@ SALT_ROUNDS= 10
 #JSON WEB TOKEN CONFIGURATION
 JWT_SECRET= udacity
 JWT_EXPIRES_IN= '1d'
+
+#put 'test' instead of 'dev' in test mode.
+ENV= 'dev'
 ```
+
+## 3- Scripts
+- Run ```yarn install``` to install all dependencies
+- Run ```db-migrate up``` to create the tables in the database
+- Run ```yarn start``` to start the application
+
