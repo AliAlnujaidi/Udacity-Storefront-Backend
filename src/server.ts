@@ -5,6 +5,7 @@ import { user_routes } from './handlers/users';
 import { product_routes } from './handlers/products';
 import { order_routes } from './handlers/orders';
 
+
 dotenv.config();
 
 const app = express();
@@ -22,6 +23,7 @@ order_routes(app);
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Environment: ${process.env.ENV}`);
 });
 
 export default app;

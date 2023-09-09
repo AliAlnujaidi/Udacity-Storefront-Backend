@@ -9,8 +9,12 @@ export const order_routes = (app: express.Application) => {
     '/orders/create',
     requireAuth,
     async (req: Request, res: Response) => {
-      const result = await order.createOrder(req.body.user_id);
-      res.json(result);
+      try {
+        const result = await order.createOrder(req.body.user_id);
+        res.json(result);
+      } catch (error) {
+        res.status(500).json({ error });
+      }
     },
   );
 

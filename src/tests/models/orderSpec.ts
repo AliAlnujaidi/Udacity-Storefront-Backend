@@ -5,6 +5,7 @@ const order = new Order();
 const user = new User();
 describe('Order Model', () => {
   let orderUser: any;
+
   beforeAll(async () => {
     const userData = {
       email: 'order@test.test',
@@ -14,18 +15,11 @@ describe('Order Model', () => {
     };
     await user.signup(userData);
     orderUser = await user.getUserByEmail(userData.email);
-    await order.createOrder({
-      user_id: orderUser.id,
-      status: 'active',
-    });
+    await order.createOrder(orderUser.id);
   });
 
   it('should have a createOrder method and return an order when created', async () => {
-    const orderData: IOrder = {
-      user_id: orderUser.id,
-      status: 'active',
-    };
-    const result = await order.createOrder(orderData);
+    const result = await order.createOrder(orderUser.id);
     expect(result).toEqual({
       id: result.id,
       user_id: orderUser.id.toString(),
