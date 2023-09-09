@@ -38,6 +38,9 @@ SALT_ROUNDS= 10
 #JSON WEB TOKEN CONFIGURATION
 JWT_SECRET= udacity
 JWT_EXPIRES_IN= '1d'
+
+#put test instead of dev in test mode.
+ENV= 'dev'
 ```
 
 ## 3- Scripts
