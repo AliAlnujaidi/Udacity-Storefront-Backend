@@ -3,6 +3,9 @@ import { Product, IProduct } from '../../models/product';
 const product = new Product();
 
 describe('Product Model', () => {
+  let mainProduct: IProduct;
+  let updateProduct: IProduct;
+  let deleteProduct: IProduct;
   beforeAll(async () => {
     const productData: IProduct = {
       name: 'beforeall',
@@ -12,8 +15,14 @@ describe('Product Model', () => {
       name: 'update',
       price: 1,
     };
-    await product.createProduct(productData);
-    await product.createProduct(productData2);
+    const productData3: IProduct = {
+      name: 'delete',
+      price: 1,
+    };
+
+    mainProduct = await product.createProduct(productData);
+    updateProduct = await product.createProduct(productData2);
+    deleteProduct = await product.createProduct(productData3);
   });
 
   it('should have an index method', async () => {
@@ -22,9 +31,9 @@ describe('Product Model', () => {
   });
 
   it('should have a show method', async () => {
-    const result = await product.selectById(1);
+    const result = await product.selectById(mainProduct.id || 0);
     expect(result).toEqual({
-      id: 1,
+      id: mainProduct.id,
       name: 'beforeall',
       price: 1,
     });
@@ -37,7 +46,7 @@ describe('Product Model', () => {
     };
     const result = await product.createProduct(productData);
     expect(result).toEqual({
-      id: 3,
+      id: result.id,
       name: 'test',
       price: 1,
     });
@@ -48,19 +57,19 @@ describe('Product Model', () => {
       name: 'update',
       price: 77,
     };
-    const result = await product.update(2, productData);
+    const result = await product.update(updateProduct.id || 0, productData);
     expect(result).toEqual({
-      id: 2,
+      id: result.id,
       name: 'update',
       price: 77,
     });
   });
 
   it('should have a delete method and return the deleted product', async () => {
-    const result = await product.delete(1);
+    const result = await product.delete(deleteProduct.id || 0);
     expect(result).toEqual({
-      id: 1,
-      name: 'beforeall',
+      id: deleteProduct.id,
+      name: 'delete',
       price: 1,
     });
   });

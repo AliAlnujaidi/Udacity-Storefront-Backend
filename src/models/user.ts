@@ -91,4 +91,28 @@ export class User {
     });
     return token;
   }
+
+  async deleteUserByEmail(email: string) {
+    try {
+      const conn = await db.connect();
+      const sql = 'DELETE FROM users WHERE email = $1';
+      const result = await conn.query(sql, [email]);
+      conn.release();
+      return result;
+    } catch (error) {
+      return `Could not delete user. Error: ${error}`;
+    }
+  }
+
+  async getUserByEmail(email: string) {
+    try {
+      const conn = await db.connect();
+      const sql = 'SELECT * FROM users WHERE email = $1';
+      const result = await conn.query(sql, [email]);
+      conn.release();
+      return result.rows[0];
+    } catch (error) {
+      return `Could not get user. Error: ${error}`;
+    }
+  }
 }

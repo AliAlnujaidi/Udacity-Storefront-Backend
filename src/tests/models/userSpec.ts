@@ -38,4 +38,9 @@ describe('User Model', () => {
     const result = await user.selectById(1);
     expect(result).toBeDefined();
   });
+
+  afterAll(async () => {
+    await user.deleteUserByEmail('beforeall@test.test');
+    await user.deleteUserByEmail('test@test.test');
+  });
 });

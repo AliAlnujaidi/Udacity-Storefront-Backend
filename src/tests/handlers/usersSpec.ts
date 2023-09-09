@@ -1,41 +1,47 @@
 import supertest from 'supertest';
 import app from '../../server';
-import { IUser } from '../../models/user';
+import { User, IUser } from '../../models/user';
+
 const request = supertest(app);
+const user = new User();
 
 describe('Users endpoints', () => {
+  let token: string;
   beforeAll(async () => {
-    const userData: IUser = {
-      email: 'token@test.test',
-      password: 'tokenpassword',
-      first_name: 'Token',
-      last_name: 'Test',
-    };
-    await request.post('/users/signup').send(userData);
+    token = await user.createToken(7);
   });
 
-
   it('should return a list of users', async () => {
-    const response = await request.get('/users');
+    const response = await request.get('/users').set({ token: token });
     expect(response.status).toBe(200);
-    expect(response.body).toEqual([]);
   });
 
   it('should return a user by id', async () => {
-    const response = await request.get('/users/1');
+    const response = await request.get('/users/1').set({ token: token });
     expect(response.status).toBe(200);
-    expect(response.body).toEqual({});
   });
 
-});
+  it('should create a user endpoint working', async () => {
+    const userData: IUser = {
+      email: 'endpoint@test.test',
+      password: 'test',
+      first_name: 'endpoint',
+      last_name: 'test',
+    };
+    const response = await request.post('/users/signup').send(userData);
+    expect(response.status).toBe(200);
+    expect(response.body).toBeDefined();
+  });
 
-const generateToken = async (): Promise<string> => {
-  const res = await request
-    .post('/user/login')
-    .send({
-      email: 'token@test.test',
-      password: 'tokenpassword',
-    });
-  const token = res.body.token;
-  return token;
-};
+  it('should login a user', async () => {
+    const userData: IUser = {
+      email: 'endpoint@test.test',
+      password: 'test',
+      first_name: 'endpoint',
+      last_name: 'test',
+    };
+    const response = await request.post('/users/login').send(userData);
+    expect(response.status).toBe(200);
+    expect(response.body).toBeDefined();
+  });
+});

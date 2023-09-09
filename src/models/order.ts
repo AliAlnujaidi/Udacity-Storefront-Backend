@@ -5,18 +5,6 @@ export type IOrder = {
 };
 
 export class Order {
-  async selectById(id: number) {
-    try {
-      const conn = await db.connect();
-      const sql = 'SELECT * FROM orders WHERE id = $1';
-      const result = await conn.query(sql, [id]);
-      conn.release();
-      return result.rows[0];
-    } catch (error) {
-      return `Could not get order. Error: ${error}`;
-    }
-  }
-
   async createOrder(orderData: IOrder) {
     try {
       const conn = await db.connect();

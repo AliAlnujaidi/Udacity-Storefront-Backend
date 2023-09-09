@@ -1,6 +1,7 @@
 import db from '../configs/database';
 
 export type IProduct = {
+  id?: number;
   name: string;
   price: number;
 };
