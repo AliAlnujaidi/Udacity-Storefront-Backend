@@ -39,7 +39,7 @@ SALT_ROUNDS= 10
 JWT_SECRET= udacity
 JWT_EXPIRES_IN= '1d'
 
-#put test instead of dev in test mode.
+#put 'test' instead of 'dev' in test mode.
 ENV= 'dev'
 ```
 
