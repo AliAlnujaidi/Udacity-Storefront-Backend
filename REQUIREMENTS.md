@@ -4,16 +4,18 @@ The company stakeholders want to create an online storefront to showcase their g
 These are the notes from a meeting with the frontend developer that describe what endpoints the API needs to supply, as well as data shapes the frontend and backend have agreed meet the requirements of the application. 
 
 ## API Endpoints
-#### Products
-- Get a list of products: '/products' [GET]
-- Get a specific product: '/products/:id' [GET] Request params: (id: user's id)
-- Create a new product '/products' [POST] Request body: {"name": "string", "price": integer} Request headers {token: JWT token}
-
 #### Users
 - Sign up a new user '/users/signup' [POST] Request body: {"firstName": "string", "lastName": "string", "email": "string", "password": "string" }
 - login user '/users/login' [POST] Request body: {"email": "string", "password": "string" }
 - Get a list of users: '/users' [GET] Request headers {token: JWT token}
 - Get a specific user: '/users/:id' [GET] Request params:( id: user's id) Request headers {token: JWT token}
+
+
+#### Products
+- Get a list of products: '/products' [GET]
+- Get a specific product: '/products/:id' [GET] Request params: (id: user's id)
+- Create a new product '/products' [POST] Request body: {"name": "string", "price": integer} Request headers {token: JWT token}
+
 
 #### Orders
 - Get a current order for a user: '/orders/user/:token' [GET] Request params: (token: JWT token)
