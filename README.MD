@@ -41,7 +41,7 @@ SALT_ROUNDS= 10
 JWT_SECRET= udacity
 JWT_EXPIRES_IN= '1d'
 
-#put 'test' instead of 'dev' in test mode.
+#put 'test' instead of 'dev' when testing .
 ENV= 'dev'
 ```
 
@@ -49,4 +49,10 @@ ENV= 'dev'
 - Run ```yarn install``` to install all dependencies
 - Run ```db-migrate up``` to create the tables in the database
 - Run ```yarn start``` to start the application
+
+## Testing
+- to run tests 
+1- change the ```ENV= 'dev'``` in .env file to ```ENV= 'test'```
+2- Run ```yarn test``` to start the test
+3- after finishing the test reset .env file
 
