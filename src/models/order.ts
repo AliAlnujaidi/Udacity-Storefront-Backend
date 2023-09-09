@@ -13,7 +13,7 @@ export class Order {
       conn.release();
       return result.rows[0];
     } catch (error) {
-      return new Error(`Could not get order. Error: ${error}`);
+      return `Could not get order. Error: ${error}`;
     }
   }
 

@@ -54,7 +54,7 @@ export class User {
       const token = this.createToken(result.rows[0].id);
       return token;
     } catch (error) {
-      return `Could not add new user ${userData.first_name}. Error: ${error}`;
+      return `Could not add new user`;
       
     }
   }
